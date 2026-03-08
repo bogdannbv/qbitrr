@@ -1,0 +1,76 @@
+services:
+  plex:
+    image: plexinc/pms-docker:latest
+    restart: unless-stopped
+    environment:
+      PUID: "${UID:-1000}"
+      PGID: "${GID:-1000}"
+      TZ: "${TIMEZONE:-Etc/GMT}"
+    volumes:
+      - ./.data/plex:/config
+      - /etc/localtime:/etc/localtime:ro
+      - ./downloads:/media
+    ports:
+      - "32400:32400/tcp"
+      - "8324:8324/tcp"
+      - "32469:32469/tcp"
+      - "1900:1900/udp"
+      - "32410:32410/udp"
+      - "32412:32412/udp"
+      - "32413:32413/udp"
+      - "32414:32414/udp"
+    depends_on:
+      - qbittorrent
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    restart: unless-stopped
+    environment:
+      PUID: "${UID:-1000}"
+      PGID: "${GID:-1000}"
+      TZ: "${TIMEZONE:-Etc/GMT}"
+    volumes:
+      - ./.data/sonarr:/config
+      - ./downloads/shows:/downloads/shows
+    ports:
+      - 8989:8989
+    depends_on:
+      - qbittorrent
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    restart: unless-stopped
+    environment:
+      PUID: "${UID:-1000}"
+      PGID: "${GID:-1000}"
+      TZ: "${TIMEZONE:-Etc/GMT}"
+    volumes:
+      - ./.data/radarr:/config
+      - ./downloads/movies:/downloads/movies
+    ports:
+      - "7878:7878"
+    depends_on:
+      - qbittorrent
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    restart: unless-stopped
+    environment:
+      PUID: "${UID:-1000}"
+      PGID: "${GID:-1000}"
+      WEBUI_PORT: "${QBIT_WEBUI_PORT}"
+      TORRENTING_PORT: "${QBIT_TORRENTING_PORT}"
+    volumes:
+      - ./downloads:/downloads
+      - ./torrents:/torrents
+      - ./config/qbit/categories.json:/config/qBittorrent/categories.json
+      - ./config/qbit/qBittorrent.conf:/config/qBittorrent/qBittorrent.conf
+      - ./config/qbit/watched_folders.json:/config/qBittorrent/watched_folders.json
+    ports:
+      - "${QBIT_WEBUI_PORT}:${QBIT_WEBUI_PORT}"
+      - "${QBIT_TORRENTING_PORT}:${QBIT_TORRENTING_PORT}"
+
+volumes:
+  plex-data:
+  sonarr-data:
+  radarr-data:

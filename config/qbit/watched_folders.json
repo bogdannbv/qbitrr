@@ -1,0 +1,89 @@
+{
+  "/torrents": {
+    "add_torrent_params": {
+      "category": "",
+      "download_limit": -1,
+      "download_path": "",
+      "inactive_seeding_time_limit": -2,
+      "operating_mode": "AutoManaged",
+      "ratio_limit": -2,
+      "save_path": "",
+      "seeding_time_limit": -2,
+      "share_limit_action": "Default",
+      "skip_checking": false,
+      "ssl_certificate": "",
+      "ssl_dh_params": "",
+      "ssl_private_key": "",
+      "tags": [
+      ],
+      "upload_limit": -1
+    },
+    "recursive": false
+  },
+  "/torrents/movies": {
+    "add_torrent_params": {
+      "category": "",
+      "download_limit": -1,
+      "download_path": "",
+      "inactive_seeding_time_limit": -2,
+      "operating_mode": "AutoManaged",
+      "ratio_limit": -2,
+      "save_path": "/downloads/movies",
+      "seeding_time_limit": -2,
+      "share_limit_action": "Default",
+      "skip_checking": false,
+      "ssl_certificate": "",
+      "ssl_dh_params": "",
+      "ssl_private_key": "",
+      "tags": [
+      ],
+      "upload_limit": -1,
+      "use_auto_tmm": false
+    },
+    "recursive": false
+  },
+  "/torrents/music": {
+    "add_torrent_params": {
+      "category": "",
+      "download_limit": -1,
+      "download_path": "",
+      "inactive_seeding_time_limit": -2,
+      "operating_mode": "AutoManaged",
+      "ratio_limit": -2,
+      "save_path": "/downloads/music",
+      "seeding_time_limit": -2,
+      "share_limit_action": "Default",
+      "skip_checking": false,
+      "ssl_certificate": "",
+      "ssl_dh_params": "",
+      "ssl_private_key": "",
+      "tags": [
+      ],
+      "upload_limit": -1,
+      "use_auto_tmm": false
+    },
+    "recursive": false
+  },
+  "/torrents/shows": {
+    "add_torrent_params": {
+      "category": "",
+      "download_limit": -1,
+      "download_path": "",
+      "inactive_seeding_time_limit": -2,
+      "operating_mode": "AutoManaged",
+      "ratio_limit": -2,
+      "save_path": "/downloads/shows",
+      "seeding_time_limit": -2,
+      "share_limit_action": "Default",
+      "skip_checking": false,
+      "ssl_certificate": "",
+      "ssl_dh_params": "",
+      "ssl_private_key": "",
+      "tags": [
+      ],
+      "upload_limit": -1,
+      "use_auto_tmm": false
+    },
+    "recursive": false
+  }
+}
