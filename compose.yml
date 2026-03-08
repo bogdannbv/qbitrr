@@ -6,6 +6,7 @@ services:
       PUID: "${UID:-1000}"
       PGID: "${GID:-1000}"
       TZ: "${TIMEZONE:-Etc/GMT}"
+      PLEX_CLAIM: "${PLEX_CLAIM}"
     volumes:
       - ./.data/plex:/config
       - /etc/localtime:/etc/localtime:ro
@@ -69,8 +70,3 @@ services:
     ports:
       - "${QBIT_WEBUI_PORT}:${QBIT_WEBUI_PORT}"
       - "${QBIT_TORRENTING_PORT}:${QBIT_TORRENTING_PORT}"
-
-volumes:
-  plex-data:
-  sonarr-data:
-  radarr-data:
