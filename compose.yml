@@ -1,4 +1,17 @@
 services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    restart: unless-stopped
+    volumes:
+      - ./.data/jellyfin/config:/config
+      - ./.data/jellyfin/cache:/cache
+      - type: bind
+        source: ./downloads
+        target: /media
+        read_only: true
+    ports:
+      - "8096:8096/tcp"
+      - "7359:7359/udp"
   plex:
     image: plexinc/pms-docker:latest
     restart: unless-stopped
