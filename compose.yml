@@ -7,6 +7,7 @@ services:
       PGID: "${GID:-1000}"
       TZ: "${TIMEZONE:-Etc/GMT}"
       PLEX_CLAIM: "${PLEX_CLAIM}"
+      ADVERTISE_IP: "${PLEX_ADVERTISE_ADDRESS}"
     volumes:
       - ./.data/plex:/config
       - /etc/localtime:/etc/localtime:ro
